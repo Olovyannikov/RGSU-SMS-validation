@@ -225,6 +225,8 @@
 .active-tab {
   display: block;
   z-index: 0;
+  -webkit-animation: scaleUp .5s;
+          animation: scaleUp .5s;
 }
 
 .form {
@@ -233,6 +235,8 @@
   color: #444;
   font-size: 16px;
   line-height: 26px;
+  -webkit-animation: scaleUp .5s ease-in-out;
+          animation: scaleUp .5s ease-in-out;
 }
 
 .form--submit {
@@ -243,6 +247,10 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+}
+
+.form--disable {
+  display: none;
 }
 
 .form__label {
@@ -348,6 +356,12 @@
 
 .form__input--code {
   max-width: 261px;
+}
+
+.form__input--error {
+  border-color: #e06364;
+  -webkit-box-shadow: 0 0 2px 0 rgba(224, 99, 100, 0.5);
+          box-shadow: 0 0 2px 0 rgba(224, 99, 100, 0.5);
 }
 
 .form__error {
@@ -461,29 +475,21 @@ dialog::backdrop {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 40px;
-  opacity: 0;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
   max-width: 400px;
   margin: auto;
   padding: 30px 70px;
   background: #fff;
   border-radius: 4px;
   color: #444;
-  position: absolute;
-  left: 50%;
-  top: -300%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   opacity: 1;
   -webkit-animation: scaleUp 0.5s ease-in-out;
           animation: scaleUp 0.5s ease-in-out;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .popup::before {
@@ -508,6 +514,16 @@ dialog::backdrop {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
   z-index: -1;
+}
+
+.popup-success,
+.popup-sms,
+.popup-fail {
+  display: none;
+}
+
+.popup--visible {
+  display: block;
 }
 
 .popup__title {
@@ -589,28 +605,28 @@ dialog::backdrop {
 
 @-webkit-keyframes scaleUp {
   from {
-    -webkit-transform: scale(0) translateX(-50%);
-            transform: scale(0) translateX(-50%);
+    -webkit-transform: scale(0);
+            transform: scale(0);
     opacity: 0;
   }
 
   to {
-    -webkit-transform: scale(1) translateX(-50%);
-            transform: scale(1) translateX(-50%);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1;
   }
 }
 
 @keyframes scaleUp {
   from {
-    -webkit-transform: scale(0) translateX(-50%);
-            transform: scale(0) translateX(-50%);
+    -webkit-transform: scale(0);
+            transform: scale(0);
     opacity: 0;
   }
 
   to {
-    -webkit-transform: scale(1) translateX(-50%);
-            transform: scale(1) translateX(-50%);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1;
   }
 }
@@ -797,6 +813,30 @@ body {
     width: 180px;
     margin-right: 0;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 475px) {
+  .form--submit {
+    margin-top: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+
+  .form__description--submit {
+    max-width: 100%;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .form__button {
+    width: 100%;
   }
 }
 

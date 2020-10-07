@@ -5,51 +5,50 @@ let popupSms = document.querySelector('.popup-sms');
 let popupSuccess = document.querySelector('.popup-success');
 let popupFail = document.querySelector('.popup-fail');
 
-let formError = document.querySelector('.form__error');
-
 let pass = document.querySelector('#pass');
 let passReq = document.querySelector('#pass-req');
 
 let popupSubmit = document.querySelector('.popup__button--submit');
-let popupSuccessButton = document.querySelector('.popup__button--success');
 
-let phoneIncoreect = document.querySelector('.form__error-phone');
-let codeIncorrect = document.querySelector('.form__error-code');
-
+let form = document.querySelector('.form');
 
 document.querySelector('#show').onclick = function () {
     if (document.querySelector('#tel').value <= '') {
-        phoneIncoreect.classList.add('form__error-phone--invalid')
+        document.querySelector('#tel').classList.add('form__input--error')
+    } else {
+        document.querySelector('#tel').classList.remove('form__input--error')
     }
 
     let result = document.querySelector('#tel').checkValidity();
 
     let passCheck = pass.checkValidity();
     let passReqCheck = passReq.checkValidity();
-    if (pass.value !== passReq.value) {
-        formError.classList.add('form__error--invalid')
+    if (pass.value !== passReq.value || pass.value <= '') {
+        pass.classList.add('form__input--error');
+        passReq.classList.add('form__input--error');
         return false;
     }
 
     if (result == true && passCheck == true && passReqCheck == true) {
-        popupSms.showModal();
+        popupSms.classList.add('popup--visible');
+        form.classList.add('form--disable');
     }
 };
 document.querySelector('#close').onclick = function () {
-    popupSms.close();
+    popupSms.classList.remove('popup--visible');
+    form.classList.remove('form--disable');
 };
 
 popupSubmit.onclick = function () {
     let result = document.querySelector('#code').checkValidity();
 
     if (result) {
-        popupSms.close();
-        popupSuccess.showModal();
+        popupSms.classList.remove('popup--visible');
+        popupSuccess.classList.add('popup--visible');
     } else {
-        codeIncorrect.classList.add('form__error-code--invalid');
 
-        popupSms.close();
-        popupFail.showModal();
+        popupSms.classList.remove('popup--visible');
+        popupFail.classList.add('popup--visible');
     }
 }
 

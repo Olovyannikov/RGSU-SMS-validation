@@ -11,22 +11,17 @@ dialog::backdrop {
     z-index: 2;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
-    opacity: 0;
-    transform: scale(1);
     max-width: 400px;
     margin: auto;
     padding: 30px 70px;
     background: #fff;
     border-radius: 4px;
     color: #444;
-    position: absolute;
-    left: 50%;
-    top: -300%;
-    transform: translateX(-50%);
+    position: relative;
     display: flex;
     opacity: 1;
     animation: scaleUp 0.5s ease-in-out;
+    box-sizing: border-box;
     &::before {
         content: "";
         position: absolute;
@@ -49,6 +44,14 @@ dialog::backdrop {
         border-radius: 4px;
         z-index: -1;
     }
+}
+
+.popup-success, .popup-sms, .popup-fail {
+    display: none;
+}
+
+.popup--visible {
+    display: block;
 }
 
 .popup__title {
@@ -124,11 +127,11 @@ dialog::backdrop {
 
 @keyframes scaleUp {
     from {
-        transform: scale(0) translateX(-50%);
+        transform: scale(0) ;
         opacity: 0;
     }
     to {
-        transform: scale(1) translateX(-50%);
+        transform: scale(1) ;
         opacity: 1;
     }
 }

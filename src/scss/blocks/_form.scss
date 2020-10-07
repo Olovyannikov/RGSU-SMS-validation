@@ -4,10 +4,20 @@
   color: #444;
   font-size: 16px;
   line-height: 26px;
+  animation: scaleUp .5s ease-in-out;
   &--submit {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 475px) {
+      margin-top: 10px;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  }
+  &--disable {
+    display: none;
   }
 }
 
@@ -50,6 +60,10 @@
   }
   &--code {
     max-width: 261px;
+  }
+  &--error {
+    border-color: #e06364;
+    box-shadow:  0 0 2px 0 rgba(224,99,100,.5);;
   }
 }
 
@@ -108,6 +122,11 @@
   &--submit {
     margin: 0;
     max-width: 162px;
+    @media (max-width: 475px) {
+      max-width: 100%;
+      margin: 20px;
+      text-align: center;
+    }
   }
 }
 
@@ -121,6 +140,9 @@
   line-height: 26px;
   cursor: pointer;
   box-sizing: border-box;
+  @media (max-width: 475px) {
+    width: 100%;
+  }
 }
 
 .form__submit {
