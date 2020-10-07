@@ -1,0 +1,16 @@
+@import "fonts.scss";
+@import "blocks/_header.scss";
+@import "blocks/_navigation.scss";
+@import "blocks/_registration.scss";
+@import "blocks/_tabs.scss";
+@import "blocks/_main.scss";
+@import "blocks/_form.scss";
+@import "blocks/_popup.scss";
+
+body {
+  font-family: "Russia", Arial, sans-serif;
+  margin: 0;
+  color: #ffffff;
+  background-color: #3464e0;
+  overflow-x: hidden;
+}

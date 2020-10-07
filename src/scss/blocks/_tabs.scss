@@ -1,0 +1,56 @@
+.tabs {
+  width: 490px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transition: 0.5s;
+}
+
+.tabs__control {
+  position: absolute;
+  top: 39px;
+  padding: 0;
+  z-index: 1;
+  border: none;
+  background-color: #ffffff;
+  color: #c3cad6;
+  font-family: inherit;
+  font-size: 26px;
+  line-height: 26px;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+  }
+  &--active {
+    color: #3464e0;
+    transition: 0.5s;
+    &:hover {
+      color: #3464e0;
+    }
+  }
+}
+.tabs__control-authorization {
+  left: 82px;
+}
+.tabs__control-registration {
+  left: 251px;
+}
+
+.active-tab {
+  display: block;
+  z-index: 0;
+}
+
+@media (max-width: 500px) {
+  .tabs {
+    width: 100%;
+  }
+  .tabs__control {
+    left: 33%;
+    top: 20px;
+  }
+  .tabs__control-registration {
+    top: 50px;
+  }
+}

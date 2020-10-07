@@ -1,0 +1,53 @@
+//based-block styles
+
+.page-header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto; //centered block
+  box-sizing: border-box;
+  padding: 14px 45px 114px 62px;
+}
+
+//main content wrapper
+
+.page-header__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+//inner image "logo"
+
+.page-header__logo {
+  width: 380px;
+}
+
+.page-header__logo-image {
+  padding-right: 16px;
+  width: 44px; //width && height - дублируется инлайн для "защиты от дурака".
+  height: 44px;
+}
+
+//title link
+
+.page-header__logo-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .page-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .page-header__title {
+    display: none;
+  }
+  .page-header__logo {
+    width: 230px;
+  }
+}
