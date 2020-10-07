@@ -101,20 +101,16 @@
         </section>
     </header>
 
-    <!-- <div class="overlay">
 
-    </div> -->
-
-    <dialog class="popup-sms">
-        <div class="popup " id="popup-sms">
+        <div class="popup popup-sms " id="popup-sms">
             <h2 class="popup__title">Подтверждение</h2>
             <p class="popup__description">SMS код действителен: 60 секунд</p>
             <form class="popup__form">
 
                 <fieldset class="form__fieldset">
                     <label for="code" class="form__label">Введите код</label>
-                    <input id="code" type="password" class="form__input form__input--code" placeholder="*****" value=""
-                        required minlength="5">
+                    <input id="code" type="text" class="form__input form__input--code" placeholder="****" value=""
+                        required minlength="4" maxlength="4" size="4" inputmode="numeric">
                     <p class="form__error-code">Неверный код</p>
                 </fieldset>
                 <div class="form--submit">
@@ -125,10 +121,8 @@
             </form>
             <button id="close" title="Закрыть" type="button" class="popup__close-button">×</button>
         </div>
-    </dialog>
 
-    <dialog class="popup-success">
-        <div class="popup " id="popup-success">
+        <div class="popup popup-success" id="popup-success">
             <h2 class="popup__title">Пароль изменен</h2>
             <form class="popup__form">
                 <svg fill="#2BC584" viewBox="0 0 32 32" width="110" height="110">
@@ -151,10 +145,8 @@
                 </div>
             </form>
         </div>
-    </dialog>
 
-    <dialog class="popup-fail">
-        <div class="popup " id="popup-fail">
+        <div class="popup popup-fail" id="popup-fail">
             <h2 class="popup__title">Ошибка</h2>
             <form class="popup__form">
                 <svg fill="#E06364" viewBox="0 0 32 32" width="110" height="110">
@@ -174,13 +166,12 @@
                 </div>
             </form>
         </div>
-    </dialog>
 
 
     <main class="page-main">
         <section class="page-main__content">
             <div class="registration active-tab">
-                <form name="passwordChange" action="#" class="registration__form form">
+                <form name="passwordChange" action="#" class="registration__form form ">
                     <div class="form__wrapper card-section">
                         <div class="form__tel tabs-content">
                             <h2 class="field__title form__title">Сброс пароля</h2>
@@ -191,13 +182,13 @@
                             <fieldset class="form__fieldset form__fieldset-tel">
                                 <label for="tel" class="form__label">Ваш телефон</label>
                                 <input name="tel" id="tel" type="text" class="form__input form__input--registration"
-                                    placeholder="+7(___)___-__-__" value="" required>
-                                <p class="form__error-phone">Введите телефон</p>
+                                    placeholder="+7(___)___-__-__" value="" required inputmode="numeric">
                             </fieldset>
                             <fieldset class="form__fieldset form__fieldset-tel">
                                 <label for="pass" class="form__label">Введите новый пароль</label>
-                                <input id="pass" type="password" class="form__input form__input--registration"
-                                    placeholder="*****" value="" minlength="8" required>
+                                <input id="pass" type="password"
+                                       class="form__input form__input--registration"
+                                    placeholder="*****" value="" minlength="8" pattern=".{8,}"  required>
                             </fieldset>
                             <p class="field__description form__description">минимум 8 символов, латинские буквы, символы
                             </p>
@@ -206,7 +197,6 @@
                                 <input id="pass-req" type="password" class="form__input form__input--registration"
                                     placeholder="*****" value="" minlength="8" required>
                             </fieldset>
-                            <p class="form__error">Пароли не совпадают</p>
                         </div>
                         <div class="form--submit">
                             <button type="button" id="show" class="form__button form__submit">
